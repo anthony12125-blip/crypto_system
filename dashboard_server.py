@@ -552,10 +552,10 @@ DASHBOARD_TEMPLATE = '''
                 <!-- Total Portfolio Value -->
                 <div class="overview-card full-width">
                     <div class="overview-label">Total Portfolio Value</div>
-                    <div class="overview-value xlarge ${ 'positive' if stats.total_pnl >= 0 else 'negative' }">
+                    <div class="overview-value xlarge {{ 'positive' if stats.total_pnl >= 0 else 'negative' }}">
                         ${{ "%.0f"|format(stats.total_value) }}
                     </div>
-                    <div class="overview-subtitle ${ 'positive' if stats.total_pnl >= 0 else 'negative' }">
+                    <div class="overview-subtitle {{ 'positive' if stats.total_pnl >= 0 else 'negative' }}">
                         {{ "+%.2f"|format(stats.total_pnl) if stats.total_pnl >= 0 else "%.2f"|format(stats.total_pnl) }}
                         ({{ "+%.2f"|format(stats.total_pnl_pct) if stats.total_pnl_pct >= 0 else "%.2f"|format(stats.total_pnl_pct) }}%)
                     </div>
@@ -564,10 +564,10 @@ DASHBOARD_TEMPLATE = '''
                 <!-- Daily P&L -->
                 <div class="overview-card">
                     <div class="overview-label">Today's P&L</div>
-                    <div class="overview-value ${ 'positive' if stats.daily_pnl >= 0 else 'negative' }">
+                    <div class="overview-value {{ 'positive' if stats.daily_pnl >= 0 else 'negative' }}">
                         {{ "+%.0f"|format(stats.daily_pnl) if stats.daily_pnl >= 0 else "%.0f"|format(stats.daily_pnl) }}
                     </div>
-                    <div class="overview-subtitle ${ 'positive' if stats.daily_pnl_pct >= 0 else 'negative' }">
+                    <div class="overview-subtitle {{ 'positive' if stats.daily_pnl_pct >= 0 else 'negative' }}">
                         {{ "%.2f"|format(stats.daily_pnl_pct) }}%
                     </div>
                 </div>

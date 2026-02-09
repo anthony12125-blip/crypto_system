@@ -26,6 +26,9 @@ CORS(app)
 API_KEY = os.getenv('DASHBOARD_API_KEY', 'crypto-bot-2026')
 GCS_BUCKET = os.getenv('GCS_BUCKET', 'haley_chat')
 
+# In-memory store for bot data received via /api/update
+bot_data = {}
+
 # Paths for state files (will be mounted from GCS or local)
 STATE_DIR = Path('/app/state') if os.path.exists('/app/state') else Path('.')
 
